@@ -11,9 +11,11 @@
   "dependencies": {
     "@clerk/nextjs": "^6.11.2",
     "convex": "^1.19.1",
+    "mutation": "^0.0.1",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "svix": "^1.45.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
