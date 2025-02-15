@@ -337,11 +337,16 @@ print("Sum of numbers: \\(sum)")`,
 };
 
 export const THEMES: Theme[] = [
-  { id: "vs-dark", label: "VS Dark", color: "#1e1e1e" },
-  { id: "vs-light", label: "VS Light", color: "#ffffff" },
-  { id: "github-dark", label: "GitHub Dark", color: "#0d1117" },
-  { id: "monokai", label: "Monokai", color: "#272822" },
-  { id: "solarized-dark", label: "Solarized Dark", color: "#002b36" },
+    { id: "vs-dark", label: "Dark", color: "#1e1e1e" },
+    { id: "vs-light", label: "Light", color: "#ffffff" },
+    { id: "github-dark", label: "GitHub Dark", color: "#0d1117" },
+    { id: "monokai", label: "Monokai", color: "#272822" },
+    { id: "solarized-dark", label: "Solarized Dark", color: "#002b36" },
+    { id: "dracula", label: "Dracula", color: "#282a36" },
+    { id: "nord", label: "Nord", color: "#2e3440" },
+    { id: "ayu-mirage", label: "Ayu Mirage", color: "#1f2430" },
+    { id: "night-owl", label: "Night Owl", color: "#011627" },
+    { id: "one-dark", label: "One Dark", color: "#282c34" }
 ];
 
 export const THEME_DEFINITONS = {
@@ -417,6 +422,131 @@ export const THEME_DEFINITONS = {
       "editor.selectionHighlightBackground": "#073642",
     },
   },
+  "dracula": {
+    base: "vs-dark",
+    inherit: true,
+    rules: [
+      { token: "comment", foreground: "6272a4" },
+      { token: "string", foreground: "f1fa8c" },
+      { token: "keyword", foreground: "ff79c6" },
+      { token: "number", foreground: "bd93f9" },
+      { token: "type", foreground: "8be9fd" },
+      { token: "class", foreground: "50fa7b" },
+      { token: "function", foreground: "ffb86c" },
+      { token: "variable", foreground: "f8f8f2" },
+      { token: "operator", foreground: "ff79c6" },
+    ],
+    colors: {
+      "editor.background": "#282a36",
+      "editor.foreground": "#f8f8f2",
+      "editorLineNumber.foreground": "#6272a4",
+      "editor.selectionBackground": "#44475a",
+      "editor.lineHighlightBackground": "#44475a",
+      "editorCursor.foreground": "#f8f8f2",
+      "editor.selectionHighlightBackground": "#44475a",
+    },
+  },
+
+  "nord": {
+    base: "vs-dark",
+    inherit: true,
+    rules: [
+      { token: "comment", foreground: "616e88" },
+      { token: "string", foreground: "a3be8c" },
+      { token: "keyword", foreground: "81a1c1" },
+      { token: "number", foreground: "b48ead" },
+      { token: "type", foreground: "88c0d0" },
+      { token: "class", foreground: "8fbcbb" },
+      { token: "function", foreground: "d8dee9" },
+      { token: "variable", foreground: "eceff4" },
+      { token: "operator", foreground: "81a1c1" },
+    ],
+    colors: {
+      "editor.background": "#2E3440",
+      "editor.foreground": "#D8DEE9",
+      "editorLineNumber.foreground": "#616e88",
+      "editor.selectionBackground": "#4C566A",
+      "editor.lineHighlightBackground": "#3B4252",
+      "editorCursor.foreground": "#D8DEE9",
+      "editor.selectionHighlightBackground": "#4C566A",
+    },
+  },
+
+  "ayu-mirage": {
+    base: "vs-dark",
+    inherit: true,
+    rules: [
+      { token: "comment", foreground: "5c6773" },
+      { token: "string", foreground: "d9f5dd" },
+      { token: "keyword", foreground: "ffad66" },
+      { token: "number", foreground: "73d0ff" },
+      { token: "type", foreground: "ffd580" },
+      { token: "class", foreground: "ffcc66" },
+      { token: "function", foreground: "ffb454" },
+      { token: "variable", foreground: "d4bfff" },
+      { token: "operator", foreground: "ffad66" },
+    ],
+    colors: {
+      "editor.background": "#1F2430",
+      "editor.foreground": "#D9F5DD",
+      "editorLineNumber.foreground": "#5c6773",
+      "editor.selectionBackground": "#34495E",
+      "editor.lineHighlightBackground": "#232834",
+      "editorCursor.foreground": "#D9F5DD",
+      "editor.selectionHighlightBackground": "#34495E",
+    },
+  },
+
+  "night-owl": {
+    base: "vs-dark",
+    inherit: true,
+    rules: [
+      { token: "comment", foreground: "5f7e97" },
+      { token: "string", foreground: "addb67" },
+      { token: "keyword", foreground: "c792ea" },
+      { token: "number", foreground: "f78c6c" },
+      { token: "type", foreground: "82aaff" },
+      { token: "class", foreground: "ffcb8b" },
+      { token: "function", foreground: "82aaff" },
+      { token: "variable", foreground: "d6deeb" },
+      { token: "operator", foreground: "c792ea" },
+    ],
+    colors: {
+      "editor.background": "#011627",
+      "editor.foreground": "#D6DEEB",
+      "editorLineNumber.foreground": "#5f7e97",
+      "editor.selectionBackground": "#1B2B34",
+      "editor.lineHighlightBackground": "#1B2B34",
+      "editorCursor.foreground": "#D6DEEB",
+      "editor.selectionHighlightBackground": "#1B2B34",
+    },
+  },
+
+  "one-dark": {
+    base: "vs-dark",
+    inherit: true,
+    rules: [
+      { token: "comment", foreground: "5c6370" },
+      { token: "string", foreground: "98c379" },
+      { token: "keyword", foreground: "c678dd" },
+      { token: "number", foreground: "d19a66" },
+      { token: "type", foreground: "e5c07b" },
+      { token: "class", foreground: "e06c75" },
+      { token: "function", foreground: "61afef" },
+      { token: "variable", foreground: "abb2bf" },
+      { token: "operator", foreground: "c678dd" },
+    ],
+    colors: {
+      "editor.background": "#282C34",
+      "editor.foreground": "#ABB2BF",
+      "editorLineNumber.foreground": "#5c6370",
+      "editor.selectionBackground": "#3E4451",
+      "editor.lineHighlightBackground": "#3E4451",
+      "editorCursor.foreground": "#ABB2BF",
+      "editor.selectionHighlightBackground": "#3E4451",
+    },
+  },
+
 };
 
 // Helper function to define themes in Monaco
