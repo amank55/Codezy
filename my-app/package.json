@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.11.2",
+    "@monaco-editor/react": "^4.7.0",
     "convex": "^1.19.1",
     "lucide-react": "^0.475.0",
     "mutation": "^0.0.1",
