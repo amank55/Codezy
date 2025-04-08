@@ -10,7 +10,7 @@ import { useClerk } from "@clerk/nextjs";
 //import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
 import useMounted from "./hooks/useMounted";
 import { EditorPanelSkeleton } from "./provider/EditorPanelSkeleton";
-//import ShareSnippetDialog from "./ShareSnippetDialog";
+import ShareSnippetDialog from "./provider/ShareSnippetDialog "
 import { OutputPanelSkeleton } from "./provider/EditorPanelSkeleton";
 
 

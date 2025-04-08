@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider,SignInButton,SignedOut } from "@clerk/nextjs";
 import ConvexClientProvider from "@/components/convexClientProvider";
 import Footer from "@/components/provider/footer";
+import { Toaster } from "react-hot-toast";
+import { LogIn } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +33,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-gray-900 to-gray-950 text-gray-100 flex flex-col`}
       >
+          <header className="p-4 flex justify-end">
+            <SignedOut>
+              <SignInButton>
+                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  Login
+                </button>
+              </SignInButton>
+            </SignedOut>
+          </header>
       <ConvexClientProvider>{children}</ConvexClientProvider>
       <Footer/>
+      <Toaster/>
+      
       </body>
     </html>
     </ClerkProvider>
