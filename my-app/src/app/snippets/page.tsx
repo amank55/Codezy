@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BookOpen, Code, Grid, Layers, Search, Tag, X } from "lucide-react";
 import SnippetsPageSkeleton from "./_components/SnippetsPageSkeleton";
 import NavigationHeader from "@/components/NavigationHeader";
-
+import SnippetCard from "./_components/SnippetCard";
 function SnippetsPage() {
     const snippets = useQuery(api.snippets.getSnippets);
     const [searchQuery, setSearchQuery] = useState("");
@@ -16,10 +16,10 @@ function SnippetsPage() {
     
    
   
-    const languages = [...new Set(snippets.map((s) => s.language))];
+    const languages = [...new Set((snippets ?? []).map((s) => s.language))];
     const popularLanguages = languages.slice(0, 5);
   
-    const filteredSnippets = snippets.filter((snippet) => {
+    const filteredSnippets = (snippets ?? []).filter((snippet) => {
       const matchesSearch =
         snippet.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         snippet.language.toLowerCase().includes(searchQuery.toLowerCase()) ||
