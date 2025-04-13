@@ -32,7 +32,7 @@ function ProfilePage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<"executions" | "starred">("executions");
 
-  const userStats = useQuery(api.codeExecutions.getUserStats, {
+  const userStats = useQuery(api.codeExecution.getUserStats, {
     userId: user?.id ?? "",
   });
 
@@ -44,7 +44,7 @@ function ProfilePage() {
     isLoading: isLoadingExecutions,
     loadMore,
   } = usePaginatedQuery(
-    api.codeExecutions.getUserExecutions,
+    api.codeExecution.getUserExecutions,
     {
       userId: user?.id ?? "",
     },
