@@ -34,13 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-gray-900 to-gray-950 text-gray-100 flex flex-col`}
       >
           <header className="p-4 flex justify-end">
-            <SignedOut>
-              <SignInButton>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                  Login
-                </button>
-              </SignInButton>
-            </SignedOut>
+            
           </header>
       <ConvexClientProvider>{children}</ConvexClientProvider>
       <Footer/>

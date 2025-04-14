@@ -10,7 +10,6 @@ import FeatureItem from "./_components/FeatureItem";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import UpgradeButton from "./_components/UpgradeButton";
 import LoginButton from "@/components/LoginButton";
-
 async function PricingPage() {
   const user = await currentUser();
   const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
@@ -92,9 +91,9 @@ async function PricingPage() {
                   </div>
                   <h2 className="text-3xl font-semibold text-white mb-4">Lifetime Pro Access</h2>
                   <div className="flex items-baseline justify-center gap-2 mb-4">
-                    <span className="text-2xl text-gray-400">$</span>
+                    <span className="text-2xl text-gray-400"></span>
                     <span className="text-6xl font-semibold bg-gradient-to-r from-gray-100 to-gray-300 text-transparent bg-clip-text">
-                      39
+                    ₹499.99
                     </span>
                     <span className="text-xl text-gray-400">one-time</span>
                   </div>
