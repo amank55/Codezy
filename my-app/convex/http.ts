@@ -4,7 +4,6 @@ import { Webhook } from "svix";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { api, internal } from "./_generated/api";
 
-
 const http = httpRouter();
 
 http.route({
@@ -46,7 +45,6 @@ http.route({
     }
   }),
 });
-
 
 http.route({
   path: "/clerk-webhook",
