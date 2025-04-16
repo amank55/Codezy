@@ -59,14 +59,15 @@ export const upgradeToPro = mutation({
     console.log("Upgrading user to Pro with email:", args.email);
 
     const user = await ctx.db
-      .query("users")
-      .filter((q) => q.eq(q.field("email"), args.email))
-      .first();
+  .query("users")
+  .first();
 
-    if (!user) {
-      console.error("User not found for email:", args.email);
-      throw new Error("User not found");
-    }
+if (!user) {
+  console.error("No users found in the database.");
+  throw new Error(`No users found. for email ${args.email}` );
+}
+
+console.log("First user found:", user);
 
     console.log("User found:", user);
 
