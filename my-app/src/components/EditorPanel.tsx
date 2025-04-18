@@ -11,7 +11,7 @@ import { useClerk } from "@clerk/nextjs";
 import useMounted from "./hooks/useMounted";
 import { EditorPanelSkeleton } from "./provider/EditorPanelSkeleton";
 import ShareSnippetDialog from "./provider/ShareSnippetDialog "
-import { OutputPanelSkeleton } from "./provider/EditorPanelSkeleton";
+
 
 
 function EditorPanel() {

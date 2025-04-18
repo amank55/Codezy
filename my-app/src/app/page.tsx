@@ -1,8 +1,6 @@
 import EditorPanel from "@/components/EditorPanel"
 import Header from "@/components/Header"
 import OutputPanel from "@/components/OutputPanel"
-import { SignOutButton, SignUpButton } from "@clerk/nextjs"
-
  export default function Home(){
   
   return(
