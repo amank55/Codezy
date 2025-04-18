@@ -14,18 +14,12 @@ export const syncUser = mutation({
       .first();
 
     if (!existingUser) {
-      console.log("Creating new user:", args);
-
       await ctx.db.insert("users", {
         userId: args.userId,
         email: args.email,
         name: args.name,
         isPro: false,
       });
-
-      console.log("User created successfully:", args);
-    } else {
-      console.log("User already exists:", existingUser);
     }
   },
 });
@@ -56,29 +50,19 @@ export const upgradeToPro = mutation({
     amount: v.number(),
   },
   handler: async (ctx, args) => {
-    console.log("Upgrading user to Pro with email:", args.email);
-
     const user = await ctx.db
-  .query("users")
-  .first();
+      .query("users")
+      .filter((q) => q.eq(q.field("email"), args.email))
+      .first();
 
-if (!user) {
-  console.error("No users found in the database.");
-  throw new Error(`No users found. for email ${args.email}` );
-}
-
-console.log("First user found:", user);
-
-    console.log("User found:", user);
+    if (!user) throw new Error("User not found");
 
     await ctx.db.patch(user._id, {
       isPro: true,
-      proSince: new Date().getTime(),
+      proSince: Date.now(),
       lemonSqueezyCustomerId: args.lemonSqueezyCustomerId,
       lemonSqueezyOrderId: args.lemonSqueezyOrderId,
     });
-
-    console.log("User upgraded to Pro successfully:", user._id);
 
     return { success: true };
   },
