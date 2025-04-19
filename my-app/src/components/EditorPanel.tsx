@@ -1,18 +1,15 @@
 "use client";
 import { useCodeEditorStore } from "@/store/useCodeEditor";
 import { useEffect, useState } from "react";
-import { defineMonacoThemes, LANGUAGE_CONFIG } from "./constants";
-import { Editor } from "@monaco-editor/react";
-import { motion } from "framer-motion";
+import { defineMonacoThemes,LANGUAGE_CONFIG } from "./constants";
+import { Editor, Monaco } from "@monaco-editor/react";
+import  { motion } from "framer-motion";
 import Image from "next/image";
 import { RotateCcwIcon, ShareIcon, TypeIcon } from "lucide-react";
 import { useClerk } from "@clerk/nextjs";
-//import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
-import useMounted from "./hooks/useMounted";
 import { EditorPanelSkeleton } from "./provider/EditorPanelSkeleton";
-import ShareSnippetDialog from "./provider/ShareSnippetDialog "
-
-
+import useMounted from "./hooks/useMounted";
+import ShareSnippetDialog from "./provider/ShareSnippetDialog ";
 
 function EditorPanel() {
   const clerk = useClerk();
@@ -24,7 +21,8 @@ function EditorPanel() {
   useEffect(() => {
     const savedCode = localStorage.getItem(`editor-code-${language}`);
     const newCode = savedCode || LANGUAGE_CONFIG[language].defaultCode;
-    if (editor) editor.setValue(newCode);
+    const model = editor?.getModel();
+    if (model) model.setValue(newCode);
   }, [language, editor]);
 
   useEffect(() => {
@@ -111,14 +109,14 @@ function EditorPanel() {
         <div className="relative group rounded-xl overflow-hidden ring-1 ring-white/[0.05]">
           {clerk.loaded && (
             <Editor
-              height="500px"
+              height="600px"
               language={LANGUAGE_CONFIG[language].monacoLanguage}
               onChange={handleEditorChange}
               theme={theme}
               beforeMount={defineMonacoThemes}
               onMount={(editor) => setEditor(editor)}
               options={{
-                minimap: { enabled: true },
+                minimap: { enabled: false },
                 fontSize,
                 automaticLayout: true,
                 scrollBeyondLastLine: false,
@@ -140,12 +138,11 @@ function EditorPanel() {
               }}
             />
           )}
-        
-        {!clerk.loaded && <EditorPanelSkeleton />}
+
+          {!clerk.loaded && <EditorPanelSkeleton />}
         </div>
       </div>
       {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />}
-     
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { Monaco } from "@monaco-editor/react";
+import * as monaco from "monaco-editor";
 import { Theme } from "@/types";
 
 type LanguageConfig = Record<
@@ -553,7 +554,7 @@ export const THEME_DEFINITONS = {
 export const defineMonacoThemes = (monaco: Monaco) => {
   Object.entries(THEME_DEFINITONS).forEach(([themeName, themeData]) => {
     monaco.editor.defineTheme(themeName, {
-      base: themeData.base,
+      base: themeData.base as monaco.editor.BuiltinTheme,
       inherit: themeData.inherit,
       rules: themeData.rules.map((rule) => ({
         ...rule,
